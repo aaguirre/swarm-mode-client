@@ -1,0 +1,19 @@
+#!/bin/bash
+
+action=$1
+service_name=$2
+node_port=2375
+
+if [ -n "$service_name" ] && [ -n "$action" ]; then
+    container_name=$(docker service ps $service_name | awk 'FNR==2{print $2"."$1}')
+    node_name=$(docker service ps $service_name | awk 'FNR==2{print $4}')
+    if [ $action == "exec" ]
+    then
+        docker -H "$node_name":"$node_port"  exec -it "$container_name"  /bin/bash
+    elif [ $action ==  "restart" ]
+    then
+        docker -H "$node_name":"$node_port" restart "$container_name"
+    fi
+else
+    echo "Please provide a service and a docker command  name"
+fi
