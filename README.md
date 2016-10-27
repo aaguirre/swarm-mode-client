@@ -27,7 +27,7 @@ OPTIONS='--selinux-enabled --log-driver=journald -H tcp://0.0.0.0:2375 -H unix:/
 Once you have completed this task for each worker node, you must copy the script to your local user bin.
 
 ```
-curl -L https://github.com/aaguirre/swarm-mode-client/releases/download/0.0.1-rc1/swarm-mode-client > /usr/local/bin/smclient
+curl -L https://github.com/aaguirre/swarm-mode-client/releases/download/v.0.1/smclient > /usr/local/bin/smclient
 chmod +x /usr/local/bin/smclient
 ```
 
