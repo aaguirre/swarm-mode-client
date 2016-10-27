@@ -31,12 +31,34 @@ curl -L https://github.com/aaguirre/swarm-mode-client/releases/download/0.0.1-rc
 chmod +x /usr/local/bin/smclient
 ```
 
+## How to use
+
+####1. Get the name of the docker service
+
+```
+docker service ls
+ID            NAME          REPLICAS  IMAGE                                          COMMAND
+4jxde6k0tcir  cas2_oct2016  1/1       private-registry/cas:oct2016
+6pzeojnmdgc4  cas1_oct2016   1/1      private-registry/cas:oct2016
+```
+
+
+####2. Enter to the service container using the swarm mode client 
+
+```
+smclient exec cas2_oct2016
+[root@5a53b43b1393 tomcat]#
+```
+
+
 
 ## Progress
 
-- [x] Initial Release
-- [ ] Catch docker exceptions
+- [x] initial release
+- [ ] catch docker exceptions
 - [ ] add --help options 
+- [ ] support replicas
+- [ ] extend to other commands like logs, stop
 
 
 
