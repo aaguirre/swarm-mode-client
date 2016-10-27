@@ -59,6 +59,7 @@ smclient exec cas2_oct2016
 - [ ] add --help options 
 - [ ] support replicas
 - [ ] extend to other commands like logs, stop
+- [ ] add tests....
 
 
 
