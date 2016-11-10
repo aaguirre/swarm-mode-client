@@ -13,6 +13,18 @@ if [ -n "$service_name" ] && [ -n "$action" ]; then
     elif [ $action ==  "restart" ]
     then
         docker -H "$node_name":"$node_port" restart "$container_name"
+    elif [ $action ==  "logs" ]
+    then
+        docker -H "$node_name":"$node_port" logs -f  "$container_name"
+    elif [ $action ==  "stats" ]
+    then
+        docker -H "$node_name":"$node_port" stats  "$container_name"
+    elif [ $action ==  "ps" ]
+    then
+        docker -H "$node_name":"$node_port" ps -a --no-trunc --filter name=^/"$container_name"$
+    elif [ $action ==  "inspect" ]
+    then
+        docker -H "$node_name":"$node_port" inspect "$container_name"
     fi
 else
     echo "Please provide a service and a docker command  name"
